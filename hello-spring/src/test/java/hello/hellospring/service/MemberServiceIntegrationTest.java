@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
-//@Transactional
+@Transactional
 class MemberServiceIntegrationTest {
     @Autowired MemberService memberService;//간단한 필드 주입 사용
     @Autowired MemberRepository memberRepository;
