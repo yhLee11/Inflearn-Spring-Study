@@ -1,5 +1,6 @@
 package hello.hellospring;
 
+import hello.hellospring.aop.TimeTraceAop;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.JdbcTemplateMemberRepository;
 import hello.hellospring.repository.JpaMemberRepository;
@@ -30,6 +31,10 @@ public class SpringConfig {
         return new MemberService(memberRepository);//스프링 빈에 등록되어 있는 memberRepository를 MemberService에 넣어준다.
     }
 
+//    @Bean
+//    public TimeTraceAop timeTraceAop() {
+//        return new TimeTraceAop();
+//    }
 //    @Bean
 //    public MemberRepository memberRepository() {//인터페이스는 new 안됨
 //        return new MemoryMemberRepository();
