@@ -27,5 +27,4 @@ public class AnnotationConfigApplicationBasicFindTest {
     void findBeanByType() {
 //        MemberService memberService = ac.
     }
-
 }
