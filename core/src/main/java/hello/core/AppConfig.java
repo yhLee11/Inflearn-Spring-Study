@@ -36,6 +36,7 @@ public class AppConfig {//애플리케이션에 대한 환경 설정을 다 해�
     public OrderService orderService() {
         System.out.println("AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
+        //return null;
     }
 
     @Bean
