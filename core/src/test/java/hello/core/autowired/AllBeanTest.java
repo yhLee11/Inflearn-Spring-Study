@@ -29,7 +29,7 @@ public class AllBeanTest {
         Assertions.assertThat(rateDiscountPrice).isEqualTo(2000);
     }
 
-    static class DiscountService{
+    static class DiscountService{//하나의 타입에 여러 스프링 빈이 있고, 그것을 사용해야 할 때
         private final Map<String, DiscountPolicy> policyMap;
         private final List<DiscountPolicy> policies;
         @Autowired
