@@ -14,14 +14,11 @@ public class JpaMain {
         ts.begin();
 
         try {
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .setFirstResult(2)
-                    .setMaxResults(5)
-                    .getResultList();
-            for (Member member : result) {
-                System.out.println("member.name="+member.getName());
-            }
+            Member member = em.find(Member.class, 150L);
+            member.setName("AAAA");
+            System.out.println("================");
 
+            ts.commit();
         } catch (Exception e) {
             ts.rollback();
         }finally {
