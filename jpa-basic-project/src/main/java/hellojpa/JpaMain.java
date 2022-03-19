@@ -15,11 +15,10 @@ public class JpaMain {
 
         try {
             Member member = new Member();
-            member.setId(1L);
-            member.setUsername("C");
-            member.setRoleType(RoleType.GEST);
-
-            em.persist(member);
+            member.setUsername("A");
+            System.out.println("=========");
+//            em.persist(member);
+            System.out.println("member.id="+member.getId()+"=========");
             ts.commit();
         } catch (Exception e) {
             ts.rollback();
