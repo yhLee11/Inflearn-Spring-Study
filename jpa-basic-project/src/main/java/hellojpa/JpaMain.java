@@ -15,10 +15,11 @@ public class JpaMain {
 
         try {
             Member member = new Member();
-            member.setUsername("A");
-            System.out.println("=========");
-//            em.persist(member);
-            System.out.println("member.id="+member.getId()+"=========");
+            member.setId("ID_A");
+            member.setUsername("C");
+
+            em.persist(member);
+
             ts.commit();
         } catch (Exception e) {
             ts.rollback();
