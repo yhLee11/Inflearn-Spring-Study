@@ -1,4 +1,4 @@
-package jpabook.jpashop.domain.item;
+package jpabook.jpashop.domain;
 
 import jpabook.jpashop.domain.Category;
 import lombok.Getter;
@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter @Setter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn("dtype")
+@DiscriminatorColumn(name="dtype")
+@Getter @Setter
 public abstract class Item {
     @Id
     @GeneratedValue
@@ -23,7 +23,7 @@ public abstract class Item {
     private int stockQuantity;
 
     @ManyToMany(mappedBy = "items")
-    private List<Category> categories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<Category>();
 
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name = "parent_id")
@@ -31,6 +31,4 @@ public abstract class Item {
 
     @OneToMany(mappedBy = "parent")
     private List<Category> child = new ArrayList<>();
-
-
 }

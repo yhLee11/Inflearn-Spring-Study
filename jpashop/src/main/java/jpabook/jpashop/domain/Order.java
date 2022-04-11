@@ -23,12 +23,13 @@ public class Order {
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne(fetch= FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="delivery_id")
     private Delivery delivery;
 
     private LocalDateTime orderDate;//주문시간
 
+    @Enumerated(EnumType.STRING)
     private OrderStatus status;//주문상태 [ORDER, CANCEL]
 
     //==연관관계 메서드==//
@@ -37,8 +38,8 @@ public class Order {
         member.getOrders().add(this);
     }
 
-    public void addOrderItems(OrderItem orderItem) {
-        orderItem.add(orderItem);
+    public void addOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
         orderItem.setOrder(this);
     }
 
