@@ -2,6 +2,10 @@ package hello0703.core.lifecycle;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class NetworkClient {
     private String url;
 
@@ -28,6 +32,7 @@ public class NetworkClient {
     }
 
     //생성자, 의존관계 주입이 끝나면 호출
+    @PostConstruct
     public void init() throws Exception {
         System.out.println("NetworkClient.init");
         connect();
@@ -35,6 +40,7 @@ public class NetworkClient {
     }
 
     //빈이 종료될 때 호출
+    @PreDestroy
     public void close() throws Exception {
         System.out.println("NetworkClient.close");
         disconnect();

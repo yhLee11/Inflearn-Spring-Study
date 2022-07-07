@@ -37,7 +37,7 @@ public class AllBeanTest {
             this.policyMap = policyMap;
             this.policies = policies;
             System.out.println("policyMap = " + policyMap);
-            System.out.println("policies = " + policyMap);
+            System.out.println("policies = " + policies);
         }
 
         public int discount(Member member, int price, String discountCode) {
