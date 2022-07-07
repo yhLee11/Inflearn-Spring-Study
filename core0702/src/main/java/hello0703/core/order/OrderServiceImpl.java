@@ -1,9 +1,12 @@
 package hello0703.core.order;
 
+import hello0703.core.annotation.MainDiscountPolicy;
 import hello0703.core.discount.DiscountPolicy;
 import hello0703.core.member.Member;
 import hello0703.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,7 +15,7 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
 //    @Autowired
-//    public void se    tMemberRepository(MemberRepository memberRepository) {
+//    public void setMemberRepository(MemberRepository memberRepository) {
 //        System.out.println("memberRepository = " + memberRepository);
 //        this.memberRepository = memberRepository;
 //    }
@@ -21,8 +24,8 @@ public class OrderServiceImpl implements OrderService {
 //        System.out.println("discountPolicy = " + discountPolicy);
 //        this.discountPolicy = discountPolicy;
 //    }
-
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         System.out.println("1. OrderServiceImpl.OrderServiceImpl");
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
