@@ -13,6 +13,7 @@ import java.util.List;
 public class SpringMemberControllerV3 {
     private MemberRespository memberRespository = MemberRespository.getInstance();
 
+//    @RequestMapping(value = "/new-form",method = RequestMethod.GET)
     @GetMapping("/new-form")
     public String newForm(){
         return "new-form";
